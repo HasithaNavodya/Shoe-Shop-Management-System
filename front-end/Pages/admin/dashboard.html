@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../assest/boostrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assest/font-awesome-pro-5/css/all.css">
+    <link rel="stylesheet" href="../../assest/css/all.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="../../assest/css/responsive.css">
+    <link rel="stylesheet" href="../../assest/css/pages.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Shoe Shop</title>
+</head>
+<body class="bg-body-tertiary home home2">
+<header>
+    <div class="navBarPrimeryDiv container-fluid position-fixed top-0 p-0  z-2">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <h2 class="shoes ms-5" href="#">Shoes.</h2>
+                <div class="profile">
+                    <div class="info">
+                        <p class="m-0">Hey, <b id="name"></b></p>
+                        <small class="text-muted" id="greeting"></small>
+                    </div>
+                    <div class="profile-photo me-2" data-bs-toggle="modal" data-bs-target="#profileForm">
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<section class="sideBar bg-white shadow-lg d-flex flex-column  ms-5 pt-5">
+    <a href="#" id="dashboardBtn" class="active">
+                    <span class="material-icons-sharp">
+                        dashboard
+                    </span>
+        <h3 class="fs-6">Dashboard</h3>
+    </a>
+
+    <a href="#" id="employeeBtn">
+                    <span class="material-icons-sharp">
+                        group
+                    </span>
+        <h3 class="fs-6">Employees</h3>
+    </a>
+
+    <a href="#" id="supplierBtn">
+                    <span class="material-symbols-outlined">
+                        user_attributes
+                    </span>
+        <h3 class="fs-6">Suppliers</h3>
+    </a>
+
+    <a href="#" id="inventoryBtn">
+                   <span class="material-symbols-outlined">
+                        inventory_2
+                    </span>
+        <h3 class="fs-6">Inventory</h3>
+    </a>
+
+    <a href="#" id="customerBtn">
+                    <span class="material-symbols-outlined">
+                        group
+                    </span>
+        <h3 class="fs-6">Customers</h3>
+    </a>
+
+    <a href="#" id="customerOrderBtn">
+                    <span class="material-symbols-outlined">
+                        orders
+                    </span>
+        <h3 class="fs-6">Orders</h3>
+    </a>
+
+    <a href="#" id="returnBtn">
+                   <span class="material-symbols-outlined">
+                        assignment_return
+                    </span>
+        <h3 class="fs-6">Return</h3>
+    </a>
+
+    <a href="#" id="userBtn">
+                    <span class="material-icons-sharp">
+                        person_outline
+                    </span>
+        <h3 class="fs-6">Users</h3>
+    </a>
+
+
+    <!--    <a href="#">-->
+    <!--                    <span class="material-icons-sharp">-->
+    <!--                        settings-->
+    <!--                    </span>-->
+    <!--        <h3 class="fs-6">Settings</h3>-->
+    <!--    </a>-->
+
+    <a href="#" id="logout">
+        <span class="material-icons-sharp">
+            logout
+        </span>
+        <h3 class="fs-6">Logout</h3>
+    </a>
+</section>
+
+<main>
+    <section id="dashboard" class="mainSection">
+        <div class="data">
+            <div class="row analyse">
+                <div class="shadow-lg col ">
+                    <div class="sales">
+                        <div class="status">
+                            <div class="saleDetailBox d-flex justify-content-center">
+                                <div class="container">
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control datepicker" id="totalSaleDate"
+                                               placeholder="Select Date">
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center flex-column">
+                                    <h3 class="fs-3 text-muted">Total Sales</h3>
+                                    <h1 id="totalSale" class="text-muted"></h1>
+                                </div>
+                            </div>
+                            <!--                            <div class="progresss">-->
+                            <!--                                <svg>-->
+                            <!--                                    <circle cx="38" cy="38" r="36"></circle>-->
+                            <!--                                </svg>-->
+                            <!--                                <div class="percentage">-->
+                            <!--                                    <p>+81%</p>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="shadow-lg col">
+                    <!--                    <img src="../Admin Dashboard/assets/images/Frame02.png" alt="">-->
+                    <!--                    <h2>100 <p>Employee Attendance</p></h2>-->
+                    <div class="sales">
+                        <div class="status">
+                            <div class="saleDetailBox">
+                                <div class="container">
+                                    <div class="input-group date">
+                                        <input type="text" id="totalProfitDate" class="form-control datepicker"
+                                               placeholder="Select Date">
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center flex-column">
+                                    <h3 class="fs-3 text-muted">Total Profit</h3>
+                                    <h1 class="text-muted fs-4">Rs <b id="totalProfit"
+                                                                      class="text-muted fs-1 fw-normal"></b></h1>
+                                </div>
+                            </div>
+                            <!--                            <div class="progresss">-->
+                            <!--                                <svg>-->
+                            <!--                                    <circle cx="38" cy="38" r="36"></circle>-->
+                            <!--                                </svg>-->
+                            <!--                                <div class="percentage">-->
+                            <!--                                    <p>+81%</p>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="shadow-lg col">
+                    <div class="searches">
+                        <div class="status">
+                            <div class="saleDetailBox">
+                                <div class="container">
+                                    <div class="input-group date">
+                                        <input type="text" id="totalItemsSoldDate" class="form-control datepicker" placeholder="Select Date">
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center flex-column">
+                                    <h3 class="fs-3 text-muted">Sold Item</h3>
+                                    <h1 id="totalItemsSold" class="text-muted"></h1>
+                                </div>
+                            </div>
+                            <!--                            <div class="progresss">-->
+                            <!--                                <svg>-->
+                            <!--                                    <circle cx="38" cy="38" r="36"></circle>-->
+                            <!--                                </svg>-->
+                            <!--                                <div class="percentage">-->
+                            <!--                                    <p>+21%</p>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="shadow-lg col-md-4 lastDiv">
+                    <!--                    <img src="../Admin Dashboard/assets/images/Frame03.png" alt="">-->
+                    <!--                    <h2>100 <p>Employee Attendance</p></h2>-->
+                    <div class="visits">
+                        <div class="status">
+                            <div class="saleDetailBox">
+                                <div class="container">
+                                    <div class="input-group date">
+                                        <input type="text" id="mostSaleItemStatusDate" class="form-control datepicker" placeholder="Select Date">
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center flex-column">
+                                    <h3 class="fs-4 text-muted">Most Sale Item Status</h3>
+                                    <h1 id="mostSaleItemStatus" class=" fs-1 fw-normal"></h1>
+                                </div>
+                            </div>
+                            <!--                            <div class="progresss">-->
+                            <!--                                <svg>-->
+                            <!--                                    <circle cx="38" cy="38" r="36"></circle>-->
+                            <!--                                </svg>-->
+                            <!--                                <div class="percentage">-->
+                            <!--                                    <p>-48%</p>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="downMainDiv d-grid">
+            <div class="row mostSaleItem">
+                <h1>Most Sale Item</h1>
+                <div class="col shadow-lg ">
+                    <div class="text-center">
+                        <img class="me-5" id="mostSaleItemPic" src="#" width="260" alt="">
+                    </div>
+                    <div class="text-center ">
+                        <div class="d-inline-block itemDiv me-5 mt-3">
+                            <h6 class="text-center fs-6">Item Code</h6>
+                            <h1 class="text-center " id="mostSaleItemCode"></h1>
+                        </div>
+                        <div class="d-inline-block itemDiv me-5 mt-3">
+                            <h6 class="text-center fs-6">Sold Qty</h6>
+                            <h1 class="text-center " id="soldQty"></h1>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col shadow-lg">
+                    <div class="qty">
+                        <div class="qtyStatus">
+                            <div class="qtyInfo">
+                                <h3>Quantity On Hand</h3>
+                                <h1 class="ms-2" id="qtyOnHand"></h1>
+                            </div>
+                            <div class="qtyProgresses">
+                                <div class="progress-circle" >
+                                    <span class="progress-value"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-inline-block itemDiv mt-3 d-flex justify-content-center flex-column d-none" id="mostSaleItemNameDiv">
+                            <h1 class="text-center fs-4 fw-medium">Item Name</h1>
+                            <h1 class="text-center text-success" id="mostSaleItemName"></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-order">
+                <div class="row mostSaleItem">
+                    <h1 class="mt-4">Recent Orders</h1>
+                    <div class="col shadow-lg">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Order Id</th>
+                                <th scope="col">Purchase Date</th>
+                                <th scope="col">Cashier Name</th>
+                                <th scope="col">Total Price</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                            </thead>
+                            <tbody id="orders-body">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="profileForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg rounded modal-dialog-centered">
+            <div class="modal-content  p-0">
+                <div class="card-body rounded-4 p-4 bg-white">
+                    <div class="d-flex">
+                        <div class="d-flex align-items-center">
+                            <img id="profilePicViewer" src="#"
+                                 alt="Generic placeholder image" class="img-fluid"
+                                 style="width: 600px; border-radius: 50%;">
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h1 class="mb-1 pt-3 profileName fw-medium" id="profileName"></h1>
+                            <h2 class="fs-4 text-muted">Joined <b id="joinDate"></b></h2>
+                            <div class="d-flex justify-content-start rounded-3 p-2 mb-2 bg-body-tertiary">
+                                <div>
+                                    <p class="small text-muted mb-1">Welcome <b id="welcomeName" class="fw-normal"></b></p>
+                                    <p class="mb-0 paraGraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias
+                                        at cupiditate debitis dolores eligendi facere, facilis fugiat iste laborum, odit
+                                        optio qui quis sed, veritatis? Deserunt error maiores possimus?</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex pt-1">
+                                <button type="button" data-mdb-button-init data-mdb-ripple-init
+                                        class="btn btn-outline-primary me-1 w-50 " data-bs-dismiss="modal">Cancel
+                                </button>
+                                <button type="button" data-mdb-button-init data-mdb-ripple-init
+                                        class="btn btn-primary w-50" data-bs-toggle="modal" data-bs-target="#resetPassword" data-bs-dismiss="modal">Change Password
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="resetPassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="btn-close position-absolute end-0 mt-3 me-3 z-3" data-bs-dismiss="modal" id="closeBtn" aria-label="Close"></button>
+                <div class="modal-body bg-white">
+                    <div class="card-body p-md-2 p-xl-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-2">
+                                    <div class="text-center mb-2">
+                                        <div class="d-flex justify-content-center">
+                                            <img id="resetPicViewer" src="#"
+                                                 alt="Generic placeholder image" class="img-fluid"
+                                                 style="width: 250px; border-radius: 50%;">
+                                        </div>
+                                    </div>
+                                    <h2 class="h4 text-center">Change Password</h2>
+                                    <h3  id="msg" class="fs-6 fw-normal text-secondary text-center m-0">Provide the email address associated with your account to recover your password.</h3>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center d-none" id="wrongPW">
+                                <div class="checkPW">
+                                    <h2 class="fw-medium" id="errorMsg"></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <form action="#" id="resetPasswordForm">
+                            <div class="row gy-3 overflow-hidden ">
+                                <div class="col-12 form-step formStep active" id="emailForm">
+                                    <div class="mb-3 input-container">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class=" "  id="email" placeholder="name@example.com" data-validate="email">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 form-step formStep" id="codeForm">
+                                    <div class="mb-3 input-container">
+                                        <label for="code" class="form-label">Verification Code</label>
+                                        <input type="text" class=" "  id="code" placeholder="" data-validate="required numeric">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 form-step formStep" id="pwForm">
+                                    <div class="mb-3 input-container">
+                                        <label for="newPassword" class="form-label">New Password</label>
+                                        <input type="password" class=" "  id="newPassword" placeholder="" data-validate="required password">
+                                    </div>
+
+                                    <div class="mb-3 input-container">
+                                        <label for="code" class="form-label">Confirm Password</label>
+                                        <input type="password" class=" "  id="confirmPassword" placeholder="" >
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="d-grid">
+                                        <button class="btn bsb-btn-xl btn-primary nextStep" id="changePW" type="submit">Get Verification</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <!--            <div class="modal-footer">-->
+                <!--                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+                <!--                <button type="button" class="btn btn-primary">Save changes</button>-->
+                <!--            </div>-->
+            </div>
+        </div>
+    </div>
+
+
+
+    <section id="pages" class="mainSection"></section>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script src="../../assest/js/code.jquery.com_jquery-3.7.1.min.js"></script>
+<script src="../../controller/employeeController.js"></script>
+<script src="../../controller/validation.js"></script>
+<script src="../../assest/boostrap/js/bootstrap.bundle.js"></script>
+<script src="../../assest/js/admin/dashboard.js"></script>
+<script src="../../controller/DashboardController.js"></script>
+<script src="../../assest/js/admin/employee.js"></script>
+<script src="../../assest/js/admin/supplier.js"></script>
+<script src="../../assest/js/admin/return.js"></script>
+<script src="../../assest/js/admin/inventory.js"></script>
+<script src="../../assest/js/admin/user.js"></script>
+<script src="../../assest/js/pagination.js"></script>
+<script src="../../assest/js/customers/customer.js"></script>
+<script src="../../assest/js/customers/customerOrder.js"></script>
+<script src="../../controller/SupplierController.js"></script>
+<script src="../../controller/CustomerController.js"></script>
+<script src="../../controller/UserController.js"></script>
+<script src="../../controller/InventoryController.js"></script>
+<script src="../../controller/PurchaseOrderController.js"></script>
+<script src="../../controller/employeeController.js"></script>
+<script src="../../controller/returnController.js"></script>
+<!--<script src="../../controller/LoginController.js"></script>-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

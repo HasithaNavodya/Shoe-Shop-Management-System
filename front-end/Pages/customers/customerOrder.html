@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Order</title>
+</head>
+<body>
+
+<section id="customerOrderMainSection">
+    <section id="customerOrderSection">
+        <div class="tblDiv row mb-5">
+            <h1>Customer Orders</h1>
+            <section class="row orderRow mb-5 mt-4 ">
+                <div class="col-5  orderBox">
+                    <form id="itemDetailsForm">
+                        <div class="row">
+                            <div class="col">
+                                <div class="input_box ">
+                                    <select class="select form-select opacity-75 txt"
+                                            aria-label="Default select example"
+                                            id="customerType" data-validate="required">
+                                        <option selected disabled>Select Customer</option>
+                                        <option value="Loyalty">Loyalty</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col cus d-none">
+                                <label for="orderCustomerId" class="form-label lbl">Customer Id</label>
+                                <input type="text" class="form-control txt" id="orderCustomerId" data-validate="required cusId">
+                                <label for="orderCustomerId" id="customerFoundStatus"
+                                       class="form-label lbl d-none text-danger">Customer Not Found!</label>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col cus d-none">
+                                <label for="customerName" class="form-label lbl">Customer Name</label>
+                                <input type="text" readonly class="form-control txt" id="customerName" required>
+                            </div>
+                            <div class="col cus d-none">
+                                <label for="customerLevel" class="form-label lbl">Customer Level</label>
+                                <input type="text" readonly class="form-control txt" id="customerLevel" required>
+                            </div>
+                        </div>
+
+                        <div class="row itm mt-2 mb-4">
+                            <div class="col">
+                                <label for="OrderItemId" class="form-label lbl">Item Code</label>
+                                <input type="text" class="form-control txt" id="OrderItemId"
+                                       data-validate="required Id">
+                                <label for="OrderItemId" id="itemFoundStatus" class="form-label lbl d-none text-danger">Item
+                                    Not Found!</label>
+                            </div>
+                            <div class="col">
+                                <label for="itemQty" class="form-label lbl">Item QTY</label>
+                                <input type="text" class="form-control txt" id="itemQty"
+                                       data-validate="required numeric" required>
+                            </div>
+                        </div>
+
+                        <div class="justify-content-end row align-items-center me-1">
+                            <button type="button" id="addToCart" class="btn btn-primary purchersBtn mt-3">Add To Cart
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-6  orderBox">
+
+                    <div class="row orderItemTable">
+                        <!--                        <div class="col mt-4 d-flex justify-content-center">-->
+                        <!--                            <h1>Size</h1>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="col mt-4 d-flex justify-content-center">-->
+                        <!--                            <h1></h1>-->
+                        <!--                        </div>-->
+                        <table class="table table-responsive table-borderless" id="tblOrderSize">
+                            <thead>
+                            <tr>
+                                <th scope="col" class="text-white"></th>
+                                <th scope="col"></th>
+                                <th scope="col">size</th>
+                                <th scope="col">Color</th>
+                                <th scope="col">Qty</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--                    <div class="row ">-->
+                    <!--                        <div class="col mt-4 d-flex justify-content-center">-->
+                    <!--                            <h1>Desc</h1>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="col mt-4 d-flex justify-content-center">-->
+                    <!--                            <h1 class="itemDesc"></h1>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <!--                    <div class="row ">-->
+                    <!--                        <div class="col mt-4 d-flex justify-content-center">-->
+                    <!--                            <h1>Qty</h1>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="col mt-4 d-flex justify-content-center">-->
+                    <!--                            <h1 class="itemTotalQty"></h1>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <div class="d-flex justify-content-center">
+                        <img src="#" id="viewItem" width="200" alt=""/>
+                    </div>
+                </div>
+                <div class="col-11  orderBox">
+                    <form id="paymentForm">
+
+                        <div class="row">
+                            <div class="col d-flex justify-content-center mt-4">
+                                <h1 class="fs-3 fw-bold">Total</h1>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-end mt-2">
+                                <h2 class="fs-4 d-inline-block me-2">Rs</h2>
+                                <h1 class="fs-3 d-inline-block" id="totalPrice">00.00</h1>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col  d-flex justify-content-center mt-4">
+                                <h1 class="fs-3 fw-bold ">Balance</h1>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-end mt-4">
+                                <h2 class="fs-4 d-inline-block me-2">Rs</h2>
+                                <h1 class="fs-3 d-inline-block" id="balancePrice">00.00</h1>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <div class="input_box ">
+                                    <select class="select form-select opacity-75 txt"
+                                            aria-label="Default select example"
+                                            id="paymentMethod" data-validate="required">
+                                        <option selected disabled>Payment Method</option>
+                                        <option value="Cash Payment">Cash Payment</option>
+                                        <option value="Card Payment">Card Payment</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3 mb-3 justify-content-center">
+                                <div class="d-flex justify-content-center gap-4 d-none cardDiv">
+                                    <div class="col-4">
+                                        <div class="input_box ">
+                                            <input type="text" class="txt" id="last4Digit"
+                                                   placeholder="last four digits of the card" data-validate="required empty-numbers">
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="input_box ">
+                                            <input type="text" class="txt" id="bankName" placeholder="bank name" data-validate="required empty-letters">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center d-none cashDiv">
+                                    <div class="col-4">
+                                        <div class="input_box ">
+                                            <input type="text" class="txt" id="amount" placeholder="Amount" data-validate="required empty-price">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="justify-content-end row align-items-center me-1">
+                            <button type="button" id="purchaseOrder" class="btn btn-success purchersBtn ">Punchers
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </section>
+            <div class="search p-0 row">
+                <div class="col-10 p-0 d-flex align-items-center justify-content-end">
+                    <div class="d-flex align-items-center">
+                        <img class="ms-2 mb-1 opacity-75" src="../../assest/images/search-normal.png" width="25"
+                             height="25" alt="">
+                        <input class="shadow-lg text-center ps" type="text" placeholder="Search by Id or Name">
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 tableCol shadow-lg ">
+                <div class="table-container">
+                    <table class="table mytable" id="tblCart">
+                        <thead class="table-header">
+                        <tr>
+                            <th scope="col">
+                            </th>
+                            <th scope="col" class="text-white">I</th>
+                            <th scope="col">Order Id</th>
+                            <th scope="col">Item Id</th>
+                            <th scope="col">Item Qty</th>
+                            <th scope="col">Item Color</th>
+                            <th scope="col">Size</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <!--                <div class="pagination-container">-->
+                <!--                    <button class="prev-btn"> Previous-->
+                <!--                        &lt;!&ndash;                        <img src="../Pages/assets/images/arrow-point-to-left.png" width="25" alt="">&ndash;&gt;-->
+                <!--                    </button>-->
+                <!--                    <button class="next-btn"> Next-->
+                <!--                        &lt;!&ndash;                        <img src="../Pages/assets/images/arrow-point-to-right.png" width="25" alt="">&ndash;&gt;-->
+                <!--                    </button>-->
+                <!--                </div>-->
+
+            </div>
+            <div class="col-2 btnCol d-flex justify-content-center mt-4">
+                <section class="d-flex flex-column gap-5">
+
+                    <button class="shadow-lg" id="showOrderDetails"><i class="fal fa-info-circle"></i>
+                        <h1>Show Orders</h1>
+                    </button>
+
+                    <button class="shadow-lg" id="removeCart"><i
+                            class="fal fa-trash"></i>
+                        <h1>Remove cart</h1>
+                    </button>
+
+                </section>
+            </div>
+        </div>
+        <div class="container d-flex justify-content-center">
+            <div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content border-0">
+                        <div class="modal-body p-0">
+                            <div class="card border-0 p-sm-3 p-2 justify-content-center">
+                                <div class="card-header pb-0 bg-white border-0 ">
+                                    <div class="row">
+                                        <div class="col ml-auto d-flex justify-content-end me-2">
+                                            <button type="button" class="close deleteBtn bg-white" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                <span class="closeIcon" aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <p class="font-weight-bold mb-2 fw-bold"> Are you sure you wanna delete this ?</p>
+                                    <p class="deleteMutedTxt"> This change will reflect in your portal after an
+                                        hour.</p>
+                                </div>
+                                <div class="card-body px-sm-4 mb-2 pt-1 pb-0">
+                                    <div class="row justify-content-end no-gutters">
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-light text-muted deleteBtn"
+                                                    data-dismiss="modal">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-danger px-4 deleteBtn"
+                                                    data-dismiss="modal">
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<script src="../../controller/PurchaseOrderController.js"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>employee</title>
+
+</head>
+<body>
+<section id="employeeMainSection">
+    <div id="test"></div>
+    <section id="employeSection">
+        <div class="tblDiv row" id="">
+            <h1>Employee Details</h1>
+            <div class="form-check activeBtn">
+                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="employeeActiveCheckBox"
+                       checked>
+                <label class="form-check-label" for="employeeActiveCheckBox">
+                    Active Employees
+                </label>
+            </div>
+            <div class="search p-0 row">
+                <div class="col-9 p-0 d-flex align-items-center justify-content-end">
+                    <div class="d-flex align-items-center">
+                        <img class="ms-2 mb-1 opacity-75" src="../../assest/images/search-normal.png" width="25"
+                             height="25" alt="">
+                        <input class="shadow-lg text-center ps" type="text" id="search_employee"
+                               placeholder="Search by Id or Name">
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 tableCol shadow-lg">
+                <div class="table-container">
+                    <table class="table table-responsive mytable" id="tblEmployee">
+                        <thead class="table-header">
+                        <tr>
+                            <th scope="col">
+                            </th>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Branch</th>
+                            <th scope="col">Role</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+
+                </div>
+                <!--                <div class="pagination-container">-->
+                <!--                    <button class="prev-btn"> Previous-->
+                <!--                        &lt;!&ndash;                        <img src="../Pages/assets/images/arrow-point-to-left.png" width="25" alt="">&ndash;&gt;-->
+                <!--                    </button>-->
+                <!--                    <button class="next-btn"> Next-->
+                <!--                        &lt;!&ndash;                        <img src="../Pages/assets/images/arrow-point-to-right.png" width="25" alt="">&ndash;&gt;-->
+                <!--                    </button>-->
+                <!--                </div>-->
+
+            </div>
+            <div class="col-2 btnCol d-flex justify-content-center mt-4">
+                <section class="d-flex flex-column gap-5 mb-5">
+                    <img id="employeeImg" src="#" class="" alt="">
+                    <button class="shadow-lg" id="addEmployee" data-bs-toggle="modal" data-bs-target="#employeeForm"><i
+                            class="fal fa-plus-circle"></i>
+                        <h1>Add Employee</h1>
+                    </button>
+                    <button class="shadow-lg" id="updateEmployee" data-bs-toggle="modal" data-bs-target="#employeeForm">
+                        <i class="fal fa-edit"></i>
+                        <h1>Update Employee</h1>
+                    </button>
+                    <button class="shadow-lg" id="deleteEmployee" data-toggle="modal" data-target="#my-modal"><i
+                            class="fal fa-trash"></i>
+                        <h1>Delete Employee</h1>
+                    </button>
+                    <button class="shadow-lg" id="showEmployeeDetails" data-bs-toggle="modal"
+                            data-bs-target="#employeeForm"><i class="fal fa-info-circle"></i>
+                        <h1>Employee Details</h1>
+                    </button>
+                </section>
+            </div>
+        </div>
+
+        <div class="modal fade " id="employeeForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content ">
+                    <div class="modal-header bg-white">
+                        <img id="employeeFormIcon" src="../../assest/images/Frame07.png" width="60" alt="">
+                        <h2 id="employeeFormTitle" class="d-inline-block ms-3 fs-5">Add Employee</h2>
+                        <button type="button" class="btn-close" id="employeePopupClose" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body bg-white inputBody">
+
+                        <form class="row g-3" id="employeeInputForm">
+                            <div class="col-md-4">
+                                <label for="employeeCode" class="form-label lbl">Employee Code</label>
+                                <input type="text" class="form-control txt" id="employeeCode" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="employeeGender" class="form-label lbl">Select Gender</label>
+                                <select class="select form-select  opacity-75 txt"
+                                        aria-label="Default select example"
+                                        id="employeeGender" data-validate="required">
+                                    <option disabled value="null" selected></option>
+                                    <option value="MALE">Male</option>
+                                    <option value="FEMALE">Female</option>
+                                </select>
+                                <!--                                <input type="text" class="form-control dis" id="supplierCode" required>-->
+                            </div>
+                            <div class="col-md-4">
+                                <label for="employeeName" class="form-label lbl">Employee Name</label>
+                                <input type="text" class="form-control txt" id="employeeName" data-validate="required letters" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="employeeStatus" class="form-label lbl">Employee Status</label>
+                                <input type="text" class="form-control txt" id="employeeStatus" data-validate="required letters" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="employeeDesignation" class="form-label lbl">Employee Designation</label>
+                                <input type="text" class="form-control txt" id="employeeDesignation" data-validate="required letters" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="employeeDOB" class="form-label lbl">Date Of Birth</label>
+                                <input type="date" id="employeeDOB" class="form-control txt" data-validate="required" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="employeeDOJ" class="form-label lbl">Date Of Join</label>
+                                <input type="date" id="employeeDOJ" class="form-control txt" data-validate="required" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="employeeBranch" class="form-label lbl">Branch</label>
+                                <input type="text" class="form-control txt" id="employeeBranch" data-validate="required letters">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="employeeBuilding" class="form-label lbl">Building No.</label>
+                                <input type="text" class="form-control txt" id="employeeBuilding">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="employeeLane" class="form-label lbl">Lane</label>
+                                <input type="text" class="form-control txt" id="employeeLane" data-validate="required empty-letters">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="employeeCity" class="form-label lbl">City</label>
+                                <input type="text" class="form-control txt" id="employeeCity" data-validate="required letters">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="employeeState" class="form-label lbl">State</label>
+                                <input type="text" class="form-control txt" id="employeeState" data-validate="required letters">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="employeePostalCode" class="form-label lbl">Postal Code</label>
+                                <input type="text" class="form-control txt" id="employeePostalCode" data-validate="required numeric">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="employeeContactNumber" class="form-label lbl">Contact Number</label>
+                                <input type="tel" class="form-control txt" id="employeeContactNumber" data-validate="required mobile-number">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="employeeEmail" class="form-label lbl">Email</label>
+                                <input type="email" class="form-control txt" id="employeeEmail" data-validate="email">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="employeeGuardian" class="form-label lbl">Name of Guardian</label>
+                                <input type="text" class="form-control txt" id="employeeGuardian" data-validate="required letters">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="employeeGuardianContact" class="form-label lbl">Emergency Contact</label>
+                                <input type="tel" class="form-control txt" id="employeeGuardianContact" data-validate="required mobile-number">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="employeeRole" class="form-label lbl">Select Role</label>
+                                <select class="form-select opacity-75 txt" aria-label="Default select example"
+                                        id="employeeRole">
+                                    <option value="null" disabled selected></option>
+                                    <option value="ADMIN">Admin</option>
+                                    <option value="USER">User</option>
+                                    <option value="OTHER">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12 d-flex justify-content-center">
+                                <div class="upload-div" id="uploadDiv">
+                                    Click to upload Image
+                                </div>
+                                <input class="form-control imgUploader txt" type="file" id="imgUploader" multiple style="display:none;"/>
+                            </div>
+<!--                            <div class=" d-flex justify-content-center">-->
+<!--                                <img id="imgViewer" alt="" width="150" src="#"/>-->
+<!--                            </div>-->
+                        </form>
+
+
+                    </div>
+                    <div class="modal-footer bg-white">
+                        <button type="button" class="btn btn-secondary" id="employeePopupCancelBtn"
+                                data-bs-dismiss="modal">Close
+                        </button>
+                        <button type="button" id="employeePopupAddBtn" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-flex justify-content-center">
+            <div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content border-0">
+                        <div class="modal-body p-0">
+                            <div class="card border-0 p-sm-3 p-2 justify-content-center">
+                                <div class="card-header pb-0 bg-white border-0 ">
+                                    <div class="row">
+                                        <div class="col ml-auto d-flex justify-content-end me-2">
+                                            <button type="button" class="close deleteBtn bg-white" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                <span class="closeIcon" aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <p class="font-weight-bold mb-2 fw-bold"> Are you sure you wanna delete this ?</p>
+                                    <p class="deleteMutedTxt"> This change will reflect in your portal after an
+                                        hour.</p>
+                                </div>
+                                <div class="card-body px-sm-4 mb-2 pt-1 pb-0">
+                                    <div class="row justify-content-end no-gutters">
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-light text-muted deleteBtn"
+                                                    data-dismiss="modal">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button type="button" id="deleteEmployeeBtn"
+                                                    class="btn btn-danger px-4 deleteBtn" data-dismiss="modal">
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+</body>
+</html>

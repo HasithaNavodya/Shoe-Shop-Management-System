@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Lugrasimo&family=M+PLUS+Rounded+1c&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lobster&family=Questrial&family=Rajdhani:wght@300;400;500;600;700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial&family=Rajdhani:wght@300;400;500;600;700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+/*main {*/
+/*    background: #ededed;*/
+/*}*/
+
+.login {
+    opacity: 50%;
+    font-family: "Exo", sans-serif;
+    font-size: 16px;
+}
+
+.shoeShopTxt1 {
+    display: inline-block;
+    font-size: 8rem;
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+.shoeShopTxt2 {
+    display: inline-block;
+    font-size: 6rem;
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #1B548F;
+}
+
+.shoeShopTxt3 {
+    font-size: 2rem;
+    font-family: "Roboto Flex", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+/*.popup {*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    width: 380px;*/
+/*    padding: 20px 30px;*/
+/*    background: #ececec;*/
+/*    box-shadow: 2px 2px 5px 5px rgb(0, 0, 0, 0.15%);*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*.popup .close-button{*/
+/*    position: absolute;*/
+/*    top: 10px;*/
+/*    right: 10px;*/
+/*    width: 15px;*/
+/*    height: 15px;*/
+/*    background: #888;*/
+/*    color: #eee;*/
+/*    text-align: center;*/
+/*     line-height: 15px;*/
+/*    border-radius: 15px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.popup .form h2{*/
+/*    text-align: center;*/
+/*    color: #222;*/
+/*    margin: 10px 0 20px;*/
+/*    font-size: 25px;*/
+/*}*/
+
+.checkPW{
+    border: red solid 1px;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 80%;
+}
+.checkPW h2{
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.upload-div {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.upload-div img {
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.formStep {
+    display: none;
+}
+
+.formStep.active {
+    display: block;
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.error {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+}

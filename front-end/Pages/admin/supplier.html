@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Supplier</title>
+</head>
+<body>
+<section id="supplierMainSection">
+    <div id="test"></div>
+    <section id="supplierSection">
+        <div class="tblDiv row" id="">
+            <h1>Supplier Details</h1>
+            <div class="search p-0 row">
+                <div class="col-10 p-0 d-flex align-items-center justify-content-end">
+                    <div class="d-flex align-items-center">
+                        <img class="ms-2 mb-1 opacity-75" src="../../assest/images/search-normal.png" width="25"
+                             height="25" alt="">
+                        <input class="shadow-lg text-center ps" id="searchSuppliers" type="text" placeholder="Search by Id or Name">
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 tableCol shadow-lg ">
+                <div class="table-container">
+                    <table id="tblSupplier" class="table mytable">
+                        <thead class="table-header">
+                        <tr>
+                            <th scope="col">
+                            </th>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Mobile Number</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+
+                </div>
+<!--                <div class="pagination-container">-->
+<!--                    <button class="prev-btn"> Previous-->
+<!--                        &lt;!&ndash;                        <img src="../Pages/assets/images/arrow-point-to-left.png" width="25" alt="">&ndash;&gt;-->
+<!--                    </button>-->
+<!--                    <button class="next-btn"> Next-->
+<!--                        &lt;!&ndash;                        <img src="../Pages/assets/images/arrow-point-to-right.png" width="25" alt="">&ndash;&gt;-->
+<!--                    </button>-->
+<!--                </div>-->
+
+            </div>
+            <div class="col-2 btnCol d-flex justify-content-center mt-4">
+                <section class="d-flex flex-column gap-5">
+                    <button class="shadow-lg" id="addSupplier" data-bs-toggle="modal" data-bs-target="#supplierForm"><i class="fal fa-plus-circle"></i>
+                        <h1>Add Supplier</h1>
+                    </button>
+                    <button class="shadow-lg" id="updateSupplier" data-bs-toggle="modal" data-bs-target="#supplierForm"><i class="fal fa-edit"></i>
+                        <h1>Update Supplier</h1>
+                    </button>
+                    <button class="shadow-lg" id="deleteSupplier" data-toggle="modal" data-target="#my-modal"><i class="fal fa-trash"></i>
+                        <h1>Delete Supplier</h1>
+                    </button>
+                    <button class="shadow-lg" id="showSupplierDetails" data-bs-toggle="modal" data-bs-target="#supplierForm"><i class="fal fa-info-circle"></i>
+                        <h1>Supplier Details</h1>
+                    </button>
+                </section>
+
+            </div>
+        </div>
+
+        <!-------------------------------Add/Update/Details/Delete Employee Form Start------------------------------------------->
+
+<!--        <div class=" d-flex justify-content-center windowPopup">-->
+<!--            <div id="supplierFormContainer" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">-->
+<!--                <div class="modal-dialog modal-dialog-centered windowPopup" role="document">-->
+<!--                    <div class="modal-content border-0">-->
+<!--                        <div class="modal-body p-0">-->
+<!--                            <div class=" border-0 p-sm-3 p-2 justify-content-center form-container">-->
+<!--                                <div class="pt-4 pb-4 ps-5 pe-5 d-flex justify-content-between">-->
+<!--                                    <div>-->
+<!--                                        <img id="supplierFormIcon" src="../../assest/images/deleteIcon.png" width="75" alt="">-->
+<!--                                        <h2 id="supplierFormTitle" class="d-inline-block ms-3">Add Supplier</h2>-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <img class="popupClose" id="supplierPopupClose" src="../../assest/images/close-btn.png"-->
+<!--                                             width="75" alt="" data-dismiss="modal" aria-label="Close" aria-hidden="true">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="lineDiv"></div>-->
+
+<!--                                <div class="ps-5 pe-5" id="supplierTxtFieldBox">-->
+<!--                                    <div class="row mb-3">-->
+<!--                                        <div class="col">-->
+<!--                                            <div class="input_box ">-->
+<!--                                                <label for="supplierCode" class="opacity-50  lbl">Supplier Code</label>-->
+<!--                                                <input type="text" class="txt" id="supplierCode" placeholder="Supplier Code">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="col">-->
+<!--                                            <div class="input_box">-->
+<!--                                                <label for="supplierName" class="opacity-50  lbl">Supplier Name</label>-->
+<!--                                                <input type="text" class="txt" id="supplierName" placeholder="Supplier Name">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="col">-->
+<!--                                            <div class="input_box">-->
+<!--                                                <label for="supplierCategory" class="opacity-50  lbl">Select Category</label>-->
+<!--                                                <select class="select form-select opacity-75 txt"-->
+<!--                                                        aria-label="Default select example"-->
+<!--                                                        id="supplierCategory">-->
+<!--                                                    <option disabled  value="null" selected>Select Category</option>-->
+<!--                                                    <option value="INTERNATIONAL">International</option>-->
+<!--                                                    <option value="LOCAL">Local</option>-->
+<!--                                                </select>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+<!--                                    <div class="row mb-3">-->
+
+<!--                                        <div class="col">-->
+<!--                                            <div class="input_box">-->
+<!--                                                <label for="supplierBuilding" class="opacity-50  lbl">Building No. Or Name</label>-->
+<!--                                                <input type="text" class="txt" id="supplierBuilding" placeholder="Building No. Or Name">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="col">-->
+<!--                                            <div class="input_box">-->
+<!--                                                <label for="supplierLane" class="opacity-50  lbl">Lane</label>-->
+<!--                                                <input type="text" class="txt" id="supplierLane" placeholder="Lane">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="col">-->
+<!--                                            <div class="input_box">-->
+<!--                                                <label for="supplierCity" class="opacity-50  lbl">City</label>-->
+<!--                                                <input type="text" class="txt" id="supplierCity" placeholder="City">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                    </div>-->
+
+<!--                                    <div class="row mb-3">-->
+<!--                                        <div class="col">-->
+<!--                                            <div class="input_box">-->
+<!--                                                <label for="supplierState" class="opacity-50  lbl">State</label>-->
+<!--                                                <input type="text" class="txt" id="supplierState" placeholder="State">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="col">-->
+<!--                                            <div class="input_box">-->
+<!--                                                <label for="supplierPostalCode" class="opacity-50  lbl">Postal Code</label>-->
+<!--                                                <input type="text" class="txt" id="supplierPostalCode" placeholder="Postal Code">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="col">-->
+<!--                                            <div class="input_box">-->
+<!--                                                <label for="supplierCountry" class="opacity-50  lbl">Country</label>-->
+<!--                                                <input type="text" class="txt" id="supplierCountry" placeholder="Country">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+
+<!--                                    </div>-->
+<!--                                    <div class="row mb-3">-->
+
+<!--                                        <div class="col">-->
+<!--                                            <div class="input_box">-->
+<!--                                                <label for="supplierContactNumber01" class="opacity-50  lbl">Mobile Number</label>-->
+<!--                                                <input type="tel" class="txt" id="supplierContactNumber01" placeholder="Mobile Number">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="col">-->
+<!--                                            <div class="input_box">-->
+<!--                                                <label for="supplierContactNumber02" class="opacity-50  lbl">Land Number</label>-->
+<!--                                                <input type="tel" class="txt" id="supplierContactNumber02" placeholder="Land Number">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="col">-->
+<!--                                            <div class="input_box">-->
+<!--                                                <label for="supplierEmail" class="opacity-50  lbl">Email</label>-->
+<!--                                                <input type="email" class="txt" id="supplierEmail" placeholder="Email">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="d-flex justify-content-between ps-5 pe-5 mb-3">-->
+<!--                                    <button class="cancelBtn" data-dismiss="modal" id="supplierPopupCancelBtn">Cancel</button>-->
+<!--                                    <button class="addBtn hiding" id="supplierPopupAddBtn">Add</button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--//////////////////////////////////////////////////-->
+
+        <div class="modal fade " id="supplierForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content ">
+                    <div class="modal-header bg-white">
+                        <img id="supplierFormIcon" src="../../assest/images/Frame07.png" width="60" alt="">
+                        <h2 id="supplierFormTitle" class="d-inline-block ms-3 fs-5">Add Employee</h2>
+                        <button type="button" class="btn-close" id="supplierPopupClose" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body bg-white inputBody">
+                        <form class="row g-3" id="supplierInputForm">
+                            <div class="col-md-4">
+                                <label for="supplierCode" class="form-label lbl">Supplier Code</label>
+                                <input type="text" class="form-control txt" id="supplierCode">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="supplierName" class="form-label lbl" >Supplier Name</label>
+                                <input type="text" class="form-control txt" id="supplierName" data-validate="required letters">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="supplierCategory" class="form-label lbl">Select Category</label>
+                                <select class="select form-select opacity-75 txt"
+                                        aria-label="Default select example"
+                                        id="supplierCategory" data-validate="required">
+                                    <option disabled  value="null" selected></option>
+                                    <option value="INTERNATIONAL">International</option>
+                                    <option value="LOCAL">Local</option>
+                                </select>
+                                <!--                                <input type="text" class="form-control dis" id="supplierCode" required>-->
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="supplierBuilding" class="form-label lbl">Building No.</label>
+                                <input type="text" class="form-control txt" id="supplierBuilding">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="supplierLane" class="form-label lbl">Lane</label>
+                                <input type="text" class="form-control txt" id="supplierLane" data-validate="required empty-letters">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="supplierCity" class="form-label lbl">City</label>
+                                <input type="text" class="form-control txt" id="supplierCity" data-validate="required letters">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="supplierState" class="form-label lbl">State</label>
+                                <input type="text" class="form-control txt" id="supplierState" data-validate="required letters" >
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="supplierPostalCode" class="form-label lbl">Postal Code</label>
+                                <input type="text" class="form-control txt" id="supplierPostalCode" data-validate="required numeric">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="supplierCountry" class="form-label lbl">Country</label>
+                                <input type="text" class="form-control txt" id="supplierCountry" data-validate="required letters">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="supplierContactNumber01" class="form-label lbl">Mobile Number</label>
+                                <input type="tel" class="form-control txt" id="supplierContactNumber01" data-validate="required any-mobile-numbers" >
+                            </div>
+                            <div class="col-md-4">
+                                <label for="supplierContactNumber02" class="form-label lbl">Land Number</label>
+                                <input type="tel" class="form-control txt" id="supplierContactNumber02" data-validate="required any-land-numbers">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="supplierEmail" class="form-label lbl">Email</label>
+                                <input type="email" class="form-control txt" id="supplierEmail" data-validate="email" >
+                            </div>
+                        </form>
+
+
+                    </div>
+                    <div class="modal-footer bg-white">
+                        <button type="button" class="btn btn-secondary" id="supplierPopupCancelBtn"
+                                data-bs-dismiss="modal">Close
+                        </button>
+                        <button type="button" id="supplierPopupAddBtn" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-flex justify-content-center">
+            <div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content border-0">
+                        <div class="modal-body p-0">
+                            <div class="card border-0 p-sm-3 p-2 justify-content-center">
+                                <div class="card-header pb-0 bg-white border-0 ">
+                                    <div class="row">
+                                        <div class="col ml-auto d-flex justify-content-end me-2">
+                                            <button type="button" class="close deleteBtn bg-white" data-dismiss="modal" aria-label="Close">
+                                                <span class="closeIcon" aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <p class="font-weight-bold mb-2 fw-bold"> Are you sure you wanna delete this ?</p>
+                                    <p class="deleteMutedTxt"> This change will reflect in your portal after an hour.</p>
+                                </div>
+                                <div class="card-body px-sm-4 mb-2 pt-1 pb-0">
+                                    <div class="row justify-content-end no-gutters">
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-light text-muted deleteBtn" data-dismiss="modal">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button type="button" id="supplierDeleteBtn" class="btn btn-danger px-4 deleteBtn" data-dismiss="modal">
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-------------------------------Add/Update/Details/Delete Employee Form End------------------------------------------->
+    </section>
+</section>
+</body>
+</html>
